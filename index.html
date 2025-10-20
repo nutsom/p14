@@ -53,8 +53,10 @@
         <!-- Header Section --><header class="bg-gradient-to-br from-sky-500 to-indigo-600 p-6 sm:p-8 text-white text-center relative overflow-hidden">
             <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" opacity="0.1"><circle cx="20" cy="20" r="15" fill="%23ffffff"/><circle cx="80" cy="50" r="10" fill="%23ffffff"/><circle cx="40" cy="80" r="12" fill="%23ffffff"/></svg>');"></div>
             <div class="relative z-10 flex flex-col items-center">
-                <span class="text-6xl mb-3 animate-bounce">🏡</span>
-                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold drop-shadow-lg">
+                <!-- UPDATED: Logo --><div class="mb-3 block">
+                    <img src="https://img5.pic.in.th/file/secure-sv1/ChatGPT-Image-20-..-2568-13_47_27.png" alt="โลโก้บ้านพิศาล โครงการ 14" class="h-28 w-28 rounded-full object-cover border-4 border-white/50 shadow-lg mx-auto">
+                </div>
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold drop-shadow-lg mt-3">
                     ประกาศนิติบุคคล หมู่บ้านพิศาล 14
                 </h1>
                 <p class="mt-3 text-lg sm:text-xl opacity-95 font-light">
@@ -170,8 +172,7 @@
                 </h2>
             
                 <div x-data="{ tab: 'village' }" class="bg-slate-50 p-4 sm:p-6 rounded-xl border">
-                    <!-- Tab Buttons -->
-                    <div class="mb-6 overflow-x-auto">
+                    <!-- Tab Buttons --><div class="mb-6 overflow-x-auto">
                         <div class="flex border-b border-gray-200" role="tablist">
                             <button @click="tab = 'village'" :class="{ 'border-indigo-500 text-indigo-600 bg-white': tab === 'village', 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300': tab !== 'village' }"
                                     class="flex-shrink-0 whitespace-nowrap py-3 px-4 sm:px-6 border-b-2 font-medium text-sm sm:text-base focus:outline-none transition-colors duration-200 rounded-t-md" role="tab">
@@ -192,18 +193,15 @@
                         </div>
                     </div>
             
-                    <!-- Tab Content -->
-                    <div class="min-h-[200px]">
-                        <!-- Village Tab -->
-                        <div x-show="tab === 'village'" role="tabpanel" class="animate-fade-in">
+                    <!-- Tab Content --><div class="min-h-[200px]">
+                        <!-- Village Tab --><div x-show="tab === 'village'" role="tabpanel" class="animate-fade-in">
                              <div class="contact-card bg-green-50 border border-green-200 p-5 rounded-lg shadow-sm text-center">
                                 <h3 class="font-bold text-xl text-green-800">ประธานนิติบุคคล</h3>
                                 <a href="tel:0831784747" class="text-3xl font-mono text-green-600 my-2 tracking-widest block hover:underline">083-178-4747</a>
                             </div>
                         </div>
             
-                        <!-- Medical Tab -->
-                        <div x-show="tab === 'medical'" role="tabpanel" class="animate-fade-in" style="display: none;">
+                        <!-- Medical Tab --><div x-show="tab === 'medical'" role="tabpanel" class="animate-fade-in" style="display: none;">
                             <div class="contact-grid">
                                  <div class="contact-card bg-rose-50 p-4 rounded-lg text-center"><p class="font-bold text-rose-800">การแพทย์ฉุกเฉิน (ทั่วประเทศ)</p><a href="tel:1669" class="text-2xl font-mono text-rose-600 mt-1 block hover:underline">1669</a></div>
                                  <div class="contact-card bg-rose-50 p-4 rounded-lg text-center"><p class="font-bold text-rose-800">หน่วยแพทย์ฉุกเฉิน (กทม.)</p><a href="tel:1646" class="text-2xl font-mono text-rose-600 mt-1 block hover:underline">1646</a></div>
@@ -212,8 +210,7 @@
                             </div>
                         </div>
             
-                        <!-- Urgent Tab -->
-                        <div x-show="tab === 'urgent'" role="tabpanel" class="animate-fade-in" style="display: none;">
+                        <!-- Urgent Tab --><div x-show="tab === 'urgent'" role="tabpanel" class="animate-fade-in" style="display: none;">
                             <div class="contact-grid">
                                 <div class="contact-card bg-red-50 p-4 rounded-lg text-center"><p class="font-bold text-red-800">เหตุด่วนเหตุร้าย</p><a href="tel:191" class="text-2xl font-mono text-red-600 mt-1 block hover:underline">191</a></div>
                                 <div class="contact-card bg-red-50 p-4 rounded-lg text-center"><p class="font-bold text-red-800">เหตุเพลิงไหม้</p><a href="tel:199" class="text-2xl font-mono text-red-600 mt-1 block hover:underline">199</a></div>
@@ -224,8 +221,7 @@
                             </div>
                         </div>
             
-                        <!-- Travel Tab -->
-                        <div x-show="tab === 'travel'" role="tabpanel" class="animate-fade-in" style="display: none;">
+                        <!-- Travel Tab --><div x-show="tab === 'travel'" role="tabpanel" class="animate-fade-in" style="display: none;">
                             <div class="contact-grid">
                                 <div class="contact-card bg-sky-50 p-4 rounded-lg text-center"><p class="font-bold text-sky-800">ตำรวจทางหลวง</p><a href="tel:1193" class="text-2xl font-mono text-sky-600 mt-1 block hover:underline">1193</a></div>
                                 <div class="contact-card bg-sky-50 p-4 rounded-lg text-center"><p class="font-bold text-sky-800">ตำรวจท่องเที่ยว</p><a href="tel:1155" class="text-2xl font-mono text-sky-600 mt-1 block hover:underline">1155</a></div>
@@ -243,6 +239,16 @@
                 </p>
             </section>
 
+            <!-- UPDATED: Map Section --><section class="mt-12">
+                <h2 class="text-3xl font-bold text-slate-800 mb-6 text-center relative pb-3">
+                    <span class="bg-white px-4 z-10 relative">แผนที่เดินทาง 🗺️</span>
+                    <span class="absolute left-0 right-0 top-1/2 h-0.5 bg-gray-200 -z-0"></span>
+                </h2>
+                <div class="flex justify-center bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 p-2 sm:p-4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d548.600909145638!2d100.44532508225554!3d13.63763098853867!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sth!2sth!4v1760942827178!5m2!1sth!2sth" width="600" height="450" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </section>
+
         </main>
         
         <!-- Footer --><footer class="bg-gradient-to-r from-sky-100 to-indigo-100 text-center p-6 border-t border-sky-200">
@@ -253,16 +259,14 @@
 
     </div>
 
-    <!-- NEW: Back to Top Button -->
-    <button id="to-top-button" title="Go to top"
+    <!-- Back to Top Button --><button id="to-top-button" title="Go to top"
         class="fixed bottom-8 right-8 z-50 p-3 bg-indigo-600 text-white rounded-full shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
         </svg>
     </button>
     
-    <!-- JavaScript for button functionality -->
-    <script>
+    <!-- JavaScript for button functionality --><script>
         const toTopButton = document.getElementById("to-top-button");
 
         window.addEventListener("scroll", () => {
