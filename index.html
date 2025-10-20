@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="th" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ประกาศนิติบุคคล หมู่บ้านพิศาล 14</title>
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
+    <!-- AlpineJS for interactivity --><script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <!-- Tailwind CSS for styling --><script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts for Thai font --><link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,16 +17,37 @@
             background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" opacity="0.05"><defs><pattern id="diagonal-stripe" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 0 0 L 10 10 M 9 -1 L 11 1 M -1 9 L 1 11" stroke="%23cbd5e1" stroke-width="1"></path></pattern></defs><rect x="0" y="0" width="100" height="100" fill="url(%23diagonal-stripe)"></rect></svg>');
             background-attachment: fixed;
         }
-        .rule-card {
+        .rule-card, .contact-card {
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
-        .rule-card:hover {
+        .rule-card:hover, .contact-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
+        #to-top-button {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        }
+        #to-top-button.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8">
+<body class="bg-slate-50 flex items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8">
     <!-- Main container card --><div class="max-w-4xl w-full bg-white rounded-2xl shadow-2xl overflow-hidden my-8 border border-sky-200">
         
         <!-- Header Section --><header class="bg-gradient-to-br from-sky-500 to-indigo-600 p-6 sm:p-8 text-white text-center relative overflow-hidden">
@@ -130,7 +152,7 @@
             </section>
 
             <!-- Fee Section - Highlighted --><section class="mt-12">
-                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-r-lg shadow-md flex items-start gap-4 animate-pulse-slow">
+                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-r-lg shadow-md flex items-start gap-4">
                     <span class="text-4xl flex-shrink-0">💸</span>
                     <div>
                         <h3 class="text-2xl font-bold text-yellow-800">ค่าส่วนกลาง: 400 บาท/เดือน</h3>
@@ -140,8 +162,82 @@
                     </div>
                 </div>
             </section>
+
+            <!-- REVISED: Emergency Contacts Section with Tabs --><section class="mt-12">
+                <h2 class="text-3xl font-bold text-slate-800 mb-6 text-center relative pb-3">
+                    <span class="bg-white px-4 z-10 relative">เบอร์โทรศัพท์ฉุกเฉิน 📞</span>
+                    <span class="absolute left-0 right-0 top-1/2 h-0.5 bg-gray-200 -z-0"></span>
+                </h2>
             
-            <!-- Closing Note --><section class="mt-10 text-center">
+                <div x-data="{ tab: 'village' }" class="bg-slate-50 p-4 sm:p-6 rounded-xl border">
+                    <!-- Tab Buttons -->
+                    <div class="mb-6 overflow-x-auto">
+                        <div class="flex border-b border-gray-200" role="tablist">
+                            <button @click="tab = 'village'" :class="{ 'border-indigo-500 text-indigo-600 bg-white': tab === 'village', 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300': tab !== 'village' }"
+                                    class="flex-shrink-0 whitespace-nowrap py-3 px-4 sm:px-6 border-b-2 font-medium text-sm sm:text-base focus:outline-none transition-colors duration-200 rounded-t-md" role="tab">
+                                ☎️ นิติบุคคล
+                            </button>
+                            <button @click="tab = 'medical'" :class="{ 'border-indigo-500 text-indigo-600 bg-white': tab === 'medical', 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300': tab !== 'medical' }"
+                                    class="flex-shrink-0 whitespace-nowrap py-3 px-4 sm:px-6 border-b-2 font-medium text-sm sm:text-base focus:outline-none transition-colors duration-200 rounded-t-md" role="tab">
+                                🚑 การแพทย์
+                            </button>
+                            <button @click="tab = 'urgent'" :class="{ 'border-indigo-500 text-indigo-600 bg-white': tab === 'urgent', 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300': tab !== 'urgent' }"
+                                    class="flex-shrink-0 whitespace-nowrap py-3 px-4 sm:px-6 border-b-2 font-medium text-sm sm:text-base focus:outline-none transition-colors duration-200 rounded-t-md" role="tab">
+                                🚓 เหตุด่วน
+                            </button>
+                            <button @click="tab = 'travel'" :class="{ 'border-indigo-500 text-indigo-600 bg-white': tab === 'travel', 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300': tab !== 'travel' }"
+                                    class="flex-shrink-0 whitespace-nowrap py-3 px-4 sm:px-6 border-b-2 font-medium text-sm sm:text-base focus:outline-none transition-colors duration-200 rounded-t-md" role="tab">
+                                🚗 การเดินทาง
+                            </button>
+                        </div>
+                    </div>
+            
+                    <!-- Tab Content -->
+                    <div class="min-h-[200px]">
+                        <!-- Village Tab -->
+                        <div x-show="tab === 'village'" role="tabpanel" class="animate-fade-in">
+                             <div class="contact-card bg-green-50 border border-green-200 p-5 rounded-lg shadow-sm text-center">
+                                <h3 class="font-bold text-xl text-green-800">ประธานนิติบุคคล</h3>
+                                <p class="text-3xl font-mono text-green-600 my-2 tracking-widest">083-178-4747</p>
+                            </div>
+                        </div>
+            
+                        <!-- Medical Tab -->
+                        <div x-show="tab === 'medical'" role="tabpanel" class="animate-fade-in" style="display: none;">
+                            <div class="contact-grid">
+                                 <div class="contact-card bg-rose-50 p-4 rounded-lg text-center"><p class="font-bold text-rose-800">การแพทย์ฉุกเฉิน (ทั่วประเทศ)</p><p class="text-2xl font-mono text-rose-600 mt-1">1669</p></div>
+                                 <div class="contact-card bg-rose-50 p-4 rounded-lg text-center"><p class="font-bold text-rose-800">หน่วยแพทย์ฉุกเฉิน (กทม.)</p><p class="text-2xl font-mono text-rose-600 mt-1">1646</p></div>
+                                 <div class="contact-card bg-rose-50 p-4 rounded-lg text-center"><p class="font-bold text-rose-800">สายด่วนสุขภาพจิต</p><p class="text-2xl font-mono text-rose-600 mt-1">1323</p></div>
+                                 <div class="contact-card bg-rose-50 p-4 rounded-lg text-center"><p class="font-bold text-rose-800">ศูนย์พิษวิทยา รามาฯ</p><p class="text-2xl font-mono text-rose-600 mt-1">1367</p></div>
+                            </div>
+                        </div>
+            
+                        <!-- Urgent Tab -->
+                        <div x-show="tab === 'urgent'" role="tabpanel" class="animate-fade-in" style="display: none;">
+                            <div class="contact-grid">
+                                <div class="contact-card bg-red-50 p-4 rounded-lg text-center"><p class="font-bold text-red-800">เหตุด่วนเหตุร้าย</p><p class="text-2xl font-mono text-red-600 mt-1">191</p></div>
+                                <div class="contact-card bg-red-50 p-4 rounded-lg text-center"><p class="font-bold text-red-800">เหตุเพลิงไหม้</p><p class="text-2xl font-mono text-red-600 mt-1">199</p></div>
+                                <div class="contact-card bg-red-50 p-4 rounded-lg text-center"><p class="font-bold text-red-800">แจ้งรถหาย</p><p class="text-2xl font-mono text-red-600 mt-1">1192</p></div>
+                                <div class="contact-card bg-red-50 p-4 rounded-lg text-center"><p class="font-bold text-red-800">กองปราบปราม</p><p class="text-2xl font-mono text-red-600 mt-1">1195</p></div>
+                                 <div class="contact-card bg-red-50 p-4 rounded-lg text-center"><p class="font-bold text-red-800">ศูนย์เตือนภัยพิบัติ</p><p class="text-2xl font-mono text-red-600 mt-1">192</p></div>
+                                 <div class="contact-card bg-red-50 p-4 rounded-lg text-center"><p class="font-bold text-red-800">สายด่วน กทม.</p><p class="text-2xl font-mono text-red-600 mt-1">1555</p></div>
+                            </div>
+                        </div>
+            
+                        <!-- Travel Tab -->
+                        <div x-show="tab === 'travel'" role="tabpanel" class="animate-fade-in" style="display: none;">
+                            <div class="contact-grid">
+                                <div class="contact-card bg-sky-50 p-4 rounded-lg text-center"><p class="font-bold text-sky-800">ตำรวจทางหลวง</p><p class="text-2xl font-mono text-sky-600 mt-1">1193</p></div>
+                                <div class="contact-card bg-sky-50 p-4 rounded-lg text-center"><p class="font-bold text-sky-800">ตำรวจท่องเที่ยว</p><p class="text-2xl font-mono text-sky-600 mt-1">1155</p></div>
+                                <div class="contact-card bg-sky-50 p-4 rounded-lg text-center"><p class="font-bold text-sky-800">การทางพิเศษฯ</p><p class="text-2xl font-mono text-sky-600 mt-1">1543</p></div>
+                                <div class="contact-card bg-sky-50 p-4 rounded-lg text-center"><p class="font-bold text-sky-800">สายด่วนกรมทางหลวง</p><p class="text-2xl font-mono text-sky-600 mt-1">1586</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Closing Note --><section class="mt-12 text-center">
                  <p class="text-slate-600 italic bg-slate-50 p-5 rounded-xl shadow-inner text-lg leading-relaxed">
                     "พวกเราคือครอบครัวเดียวกัน 👨‍👩‍👧‍👦 การอยู่ร่วมกันอย่างมีความสุข เริ่มต้นที่ <span class="font-bold text-blue-600">การมีน้ำใจ</span> และ <span class="font-bold text-indigo-600">การเคารพกฎระเบียบ</span> ปัญหาต่างๆ ก็จะไม่เกิดขึ้นครับ <span class="text-2xl">🙏</span>"
                 </p>
@@ -150,12 +246,40 @@
         </main>
         
         <!-- Footer --><footer class="bg-gradient-to-r from-sky-100 to-indigo-100 text-center p-6 border-t border-sky-200">
-            <p class="font-bold text-slate-700 text-lg">ประกาศ ณ วันที่ 26 กันยายน 2568</p>
+            <p class="font-bold text-slate-700 text-lg">ประกาศ ณ วันที่ 20 ตุลาคม 2568</p>
             <p class="text-slate-600 mt-2">จึงเรียนมาเพื่อทราบโดยทั่วกัน</p>
             <p class="font-extrabold text-indigo-700 text-2xl mt-4">นิติบุคคล หมู่บ้านพิศาล 14</p>
         </footer>
 
     </div>
+
+    <!-- NEW: Back to Top Button -->
+    <button id="to-top-button" title="Go to top"
+        class="fixed bottom-8 right-8 z-50 p-3 bg-indigo-600 text-white rounded-full shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+        </svg>
+    </button>
+    
+    <!-- JavaScript for button functionality -->
+    <script>
+        const toTopButton = document.getElementById("to-top-button");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) { // Show button after scrolling 300px
+                toTopButton.classList.add("show");
+            } else {
+                toTopButton.classList.remove("show");
+            }
+        });
+
+        toTopButton.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    </script>
 </body>
 </html>
 
