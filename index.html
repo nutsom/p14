@@ -163,7 +163,7 @@
                 </div>
             </section>
 
-            <!-- REVISED: Emergency Contacts Section with Tabs --><section class="mt-12">
+            <!-- REVISED: Emergency Contacts Section with Click-to-Call --><section class="mt-12">
                 <h2 class="text-3xl font-bold text-slate-800 mb-6 text-center relative pb-3">
                     <span class="bg-white px-4 z-10 relative">เบอร์โทรศัพท์ฉุกเฉิน 📞</span>
                     <span class="absolute left-0 right-0 top-1/2 h-0.5 bg-gray-200 -z-0"></span>
@@ -198,39 +198,39 @@
                         <div x-show="tab === 'village'" role="tabpanel" class="animate-fade-in">
                              <div class="contact-card bg-green-50 border border-green-200 p-5 rounded-lg shadow-sm text-center">
                                 <h3 class="font-bold text-xl text-green-800">ประธานนิติบุคคล</h3>
-                                <p class="text-3xl font-mono text-green-600 my-2 tracking-widest">083-178-4747</p>
+                                <a href="tel:0831784747" class="text-3xl font-mono text-green-600 my-2 tracking-widest block hover:underline">083-178-4747</a>
                             </div>
                         </div>
             
                         <!-- Medical Tab -->
                         <div x-show="tab === 'medical'" role="tabpanel" class="animate-fade-in" style="display: none;">
                             <div class="contact-grid">
-                                 <div class="contact-card bg-rose-50 p-4 rounded-lg text-center"><p class="font-bold text-rose-800">การแพทย์ฉุกเฉิน (ทั่วประเทศ)</p><p class="text-2xl font-mono text-rose-600 mt-1">1669</p></div>
-                                 <div class="contact-card bg-rose-50 p-4 rounded-lg text-center"><p class="font-bold text-rose-800">หน่วยแพทย์ฉุกเฉิน (กทม.)</p><p class="text-2xl font-mono text-rose-600 mt-1">1646</p></div>
-                                 <div class="contact-card bg-rose-50 p-4 rounded-lg text-center"><p class="font-bold text-rose-800">สายด่วนสุขภาพจิต</p><p class="text-2xl font-mono text-rose-600 mt-1">1323</p></div>
-                                 <div class="contact-card bg-rose-50 p-4 rounded-lg text-center"><p class="font-bold text-rose-800">ศูนย์พิษวิทยา รามาฯ</p><p class="text-2xl font-mono text-rose-600 mt-1">1367</p></div>
+                                 <div class="contact-card bg-rose-50 p-4 rounded-lg text-center"><p class="font-bold text-rose-800">การแพทย์ฉุกเฉิน (ทั่วประเทศ)</p><a href="tel:1669" class="text-2xl font-mono text-rose-600 mt-1 block hover:underline">1669</a></div>
+                                 <div class="contact-card bg-rose-50 p-4 rounded-lg text-center"><p class="font-bold text-rose-800">หน่วยแพทย์ฉุกเฉิน (กทม.)</p><a href="tel:1646" class="text-2xl font-mono text-rose-600 mt-1 block hover:underline">1646</a></div>
+                                 <div class="contact-card bg-rose-50 p-4 rounded-lg text-center"><p class="font-bold text-rose-800">สายด่วนสุขภาพจิต</p><a href="tel:1323" class="text-2xl font-mono text-rose-600 mt-1 block hover:underline">1323</a></div>
+                                 <div class="contact-card bg-rose-50 p-4 rounded-lg text-center"><p class="font-bold text-rose-800">ศูนย์พิษวิทยา รามาฯ</p><a href="tel:1367" class="text-2xl font-mono text-rose-600 mt-1 block hover:underline">1367</a></div>
                             </div>
                         </div>
             
                         <!-- Urgent Tab -->
                         <div x-show="tab === 'urgent'" role="tabpanel" class="animate-fade-in" style="display: none;">
                             <div class="contact-grid">
-                                <div class="contact-card bg-red-50 p-4 rounded-lg text-center"><p class="font-bold text-red-800">เหตุด่วนเหตุร้าย</p><p class="text-2xl font-mono text-red-600 mt-1">191</p></div>
-                                <div class="contact-card bg-red-50 p-4 rounded-lg text-center"><p class="font-bold text-red-800">เหตุเพลิงไหม้</p><p class="text-2xl font-mono text-red-600 mt-1">199</p></div>
-                                <div class="contact-card bg-red-50 p-4 rounded-lg text-center"><p class="font-bold text-red-800">แจ้งรถหาย</p><p class="text-2xl font-mono text-red-600 mt-1">1192</p></div>
-                                <div class="contact-card bg-red-50 p-4 rounded-lg text-center"><p class="font-bold text-red-800">กองปราบปราม</p><p class="text-2xl font-mono text-red-600 mt-1">1195</p></div>
-                                 <div class="contact-card bg-red-50 p-4 rounded-lg text-center"><p class="font-bold text-red-800">ศูนย์เตือนภัยพิบัติ</p><p class="text-2xl font-mono text-red-600 mt-1">192</p></div>
-                                 <div class="contact-card bg-red-50 p-4 rounded-lg text-center"><p class="font-bold text-red-800">สายด่วน กทม.</p><p class="text-2xl font-mono text-red-600 mt-1">1555</p></div>
+                                <div class="contact-card bg-red-50 p-4 rounded-lg text-center"><p class="font-bold text-red-800">เหตุด่วนเหตุร้าย</p><a href="tel:191" class="text-2xl font-mono text-red-600 mt-1 block hover:underline">191</a></div>
+                                <div class="contact-card bg-red-50 p-4 rounded-lg text-center"><p class="font-bold text-red-800">เหตุเพลิงไหม้</p><a href="tel:199" class="text-2xl font-mono text-red-600 mt-1 block hover:underline">199</a></div>
+                                <div class="contact-card bg-red-50 p-4 rounded-lg text-center"><p class="font-bold text-red-800">แจ้งรถหาย</p><a href="tel:1192" class="text-2xl font-mono text-red-600 mt-1 block hover:underline">1192</a></div>
+                                <div class="contact-card bg-red-50 p-4 rounded-lg text-center"><p class="font-bold text-red-800">กองปราบปราม</p><a href="tel:1195" class="text-2xl font-mono text-red-600 mt-1 block hover:underline">1195</a></div>
+                                 <div class="contact-card bg-red-50 p-4 rounded-lg text-center"><p class="font-bold text-red-800">ศูนย์เตือนภัยพิบัติ</p><a href="tel:192" class="text-2xl font-mono text-red-600 mt-1 block hover:underline">192</a></div>
+                                 <div class="contact-card bg-red-50 p-4 rounded-lg text-center"><p class="font-bold text-red-800">สายด่วน กทม.</p><a href="tel:1555" class="text-2xl font-mono text-red-600 mt-1 block hover:underline">1555</a></div>
                             </div>
                         </div>
             
                         <!-- Travel Tab -->
                         <div x-show="tab === 'travel'" role="tabpanel" class="animate-fade-in" style="display: none;">
                             <div class="contact-grid">
-                                <div class="contact-card bg-sky-50 p-4 rounded-lg text-center"><p class="font-bold text-sky-800">ตำรวจทางหลวง</p><p class="text-2xl font-mono text-sky-600 mt-1">1193</p></div>
-                                <div class="contact-card bg-sky-50 p-4 rounded-lg text-center"><p class="font-bold text-sky-800">ตำรวจท่องเที่ยว</p><p class="text-2xl font-mono text-sky-600 mt-1">1155</p></div>
-                                <div class="contact-card bg-sky-50 p-4 rounded-lg text-center"><p class="font-bold text-sky-800">การทางพิเศษฯ</p><p class="text-2xl font-mono text-sky-600 mt-1">1543</p></div>
-                                <div class="contact-card bg-sky-50 p-4 rounded-lg text-center"><p class="font-bold text-sky-800">สายด่วนกรมทางหลวง</p><p class="text-2xl font-mono text-sky-600 mt-1">1586</p></div>
+                                <div class="contact-card bg-sky-50 p-4 rounded-lg text-center"><p class="font-bold text-sky-800">ตำรวจทางหลวง</p><a href="tel:1193" class="text-2xl font-mono text-sky-600 mt-1 block hover:underline">1193</a></div>
+                                <div class="contact-card bg-sky-50 p-4 rounded-lg text-center"><p class="font-bold text-sky-800">ตำรวจท่องเที่ยว</p><a href="tel:1155" class="text-2xl font-mono text-sky-600 mt-1 block hover:underline">1155</a></div>
+                                <div class="contact-card bg-sky-50 p-4 rounded-lg text-center"><p class="font-bold text-sky-800">การทางพิเศษฯ</p><a href="tel:1543" class="text-2xl font-mono text-sky-600 mt-1 block hover:underline">1543</a></div>
+                                <div class="contact-card bg-sky-50 p-4 rounded-lg text-center"><p class="font-bold text-sky-800">สายด่วนกรมทางหลวง</p><a href="tel:1586" class="text-2xl font-mono text-sky-600 mt-1 block hover:underline">1586</a></div>
                             </div>
                         </div>
                     </div>
