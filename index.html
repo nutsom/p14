@@ -79,89 +79,132 @@
                 </div>
             </section>
 
-            <!-- Rules Section --><section>
+            <!-- UPDATED: Rules Section with Tabs --><section>
                 <h2 class="text-3xl font-bold text-slate-800 mb-8 text-center relative pb-3">
                     <span class="bg-white px-4 z-10 relative">กฎและระเบียบการอยู่ร่วมกัน</span>
                     <span class="absolute left-0 right-0 top-1/2 h-0.5 bg-gray-200 -z-0"></span>
                 </h2>
-                <div class="grid md:grid-cols-2 gap-6">
+                <div x-data="{ tab: 'general' }" class="bg-slate-50 p-4 sm:p-6 rounded-xl border">
+                    <!-- Tab Buttons for Rules --><div class="mb-6 overflow-x-auto">
+                        <div class="flex border-b border-gray-200" role="tablist">
+                            <button @click="tab = 'general'" :class="{ 'border-indigo-500 text-indigo-600 bg-white': tab === 'general', 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300': tab !== 'general' }"
+                                    class="flex-shrink-0 whitespace-nowrap py-3 px-4 sm:px-6 border-b-2 font-medium text-sm sm:text-base focus:outline-none transition-colors duration-200 rounded-t-md" role="tab">
+                                📜 กฎระเบียบทั่วไป
+                            </button>
+                            <button @click="tab = 'parking'" :class="{ 'border-indigo-500 text-indigo-600 bg-white': tab === 'parking', 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300': tab !== 'parking' }"
+                                    class="flex-shrink-0 whitespace-nowrap py-3 px-4 sm:px-6 border-b-2 font-medium text-sm sm:text-base focus:outline-none transition-colors duration-200 rounded-t-md" role="tab">
+                                🚗 กฎระเบียบที่จอดรถ
+                            </button>
+                            <button @click="tab = 'funeral'" :class="{ 'border-indigo-500 text-indigo-600 bg-white': tab === 'funeral', 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300': tab !== 'funeral' }"
+                                    class="flex-shrink-0 whitespace-nowrap py-3 px-4 sm:px-6 border-b-2 font-medium text-sm sm:text-base focus:outline-none transition-colors duration-200 rounded-t-md" role="tab">
+                                🙏 ฌาปนกิจ
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- General Rules Tab Content --><div x-show="tab === 'general'" role="tabpanel" class="animate-fade-in">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="rule-card bg-indigo-50 p-5 rounded-lg shadow-sm flex items-start gap-4">
+                                <span class="text-3xl flex-shrink-0">🇹🇭</span>
+                                <div><h3 class="font-bold text-xl text-indigo-800 mb-1">ชาติ ศาสนา และพระมหากษัตริย์</h3><p class="text-slate-700">ห้ามสมาชิกโพสต์ข้อความที่ไม่เหมาะสม หรือแสดงความคิดเห็นที่แตกต่างต่อสถาบันพระมหากษัตริย์โดยเด็ดขาด</p></div>
+                            </div>
+                            <div class="rule-card bg-indigo-50 p-5 rounded-lg shadow-sm flex items-start gap-4">
+                                <span class="text-3xl flex-shrink-0">🗳️</span>
+                                <div><h3 class="font-bold text-xl text-indigo-800 mb-1">การเมือง</h3><p class="text-slate-700">ห้ามโพสต์เนื้อหาหรือแสดงความคิดเห็นทางการเมืองโดยเด็ดขาด เพื่อป้องกันความขัดแย้ง</p></div>
+                            </div>
+                            <div class="rule-card bg-indigo-50 p-5 rounded-lg shadow-sm flex items-start gap-4">
+                                <span class="text-3xl flex-shrink-0">🗣️❌</span>
+                                <div><h3 class="font-bold text-xl text-indigo-800 mb-1">การกล่าวว่าร้าย</h3><p class="text-slate-700">ห้ามต่อว่าหรือเสียดสีเพื่อนบ้านลงในกลุ่มโดยเด็ดขาด</p></div>
+                            </div>
+                            <div class="rule-card bg-indigo-50 p-5 rounded-lg shadow-sm flex items-start gap-4">
+                                <span class="text-3xl flex-shrink-0">🚧</span>
+                                <div><h3 class="font-bold text-xl text-indigo-800 mb-1">ปัญหาระหว่างบ้าน</h3><p class="text-slate-700">หากมีปัญหาเกี่ยวกับเขตแดนหรือพื้นที่ส่วนกลาง กรุณาแจ้งนิติบุคคล</p></div>
+                            </div>
+                            <div class="rule-card bg-indigo-50 p-5 rounded-lg shadow-sm flex items-start gap-4">
+                                <span class="text-3xl flex-shrink-0">🔔</span>
+                                <div><h3 class="font-bold text-xl text-indigo-800 mb-1">การแจ้งปัญหาส่วนรวม</h3><p class="text-slate-700">สามารถแจ้งปัญหาเกี่ยวกับพื้นที่ส่วนกลางในกลุ่ม หรือแจ้งโดยตรงที่คณะกรรมการ</p></div>
+                            </div>
+                            <div class="rule-card bg-indigo-50 p-5 rounded-lg shadow-sm flex items-start gap-4">
+                                <span class="text-3xl flex-shrink-0">🅿️🚫</span>
+                                <div><h3 class="font-bold text-xl text-indigo-800 mb-1">การใช้พื้นที่ส่วนกลาง</h3><p class="text-slate-700">ห้ามรุกล้ำพื้นที่ส่วนกลางทุกจุดโดยเด็ดขาด (จะอนุญาตเป็นบางกรณีตามความเหมาะสม)</p></div>
+                            </div>
+                            <div class="rule-card bg-indigo-50 p-5 rounded-lg shadow-sm flex items-start gap-4">
+                                <span class="text-3xl flex-shrink-0">🤝⚖️</span>
+                                <div><h3 class="font-bold text-xl text-indigo-800 mb-1">ปัญหาส่วนตัว</h3><p class="text-slate-700">หากตกลงกันไม่ได้ กรุณาปรึกษาเจ้าหน้าที่ตำรวจเพื่อดำเนินการตามกฎหมาย</p></div>
+                            </div>
+                            <div class="rule-card bg-indigo-50 p-5 rounded-lg shadow-sm flex items-start gap-4">
+                                <span class="text-3xl flex-shrink-0">➕👤</span>
+                                <div><h3 class="font-bold text-xl text-indigo-800 mb-1">การเชิญสมาชิกใหม่</h3><p class="text-slate-700">ต้องแจ้งคณะกรรมการให้ทราบก่อน และสมาชิกใหม่ต้องรายงานตัวพร้อมแจ้งบ้านเลขที่</p></div>
+                            </div>
+                        </div>
+                        <!-- Fee Card moved here --><div class="mt-8 bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-lg shadow-md flex flex-col gap-4">
+                            <div class="flex items-start gap-4">
+                                <span class="text-4xl flex-shrink-0">💸</span>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-yellow-800">ค่าส่วนกลาง: 400 บาท/เดือน</h3>
+                                    <p class="text-yellow-700 mt-2 text-lg">
+                                        <span class="font-semibold">⚠️ โปรดชำระภายในวันที่ 5 ของทุกเดือน</span> หากค้างชำระเกิน 7 เดือน นิติบุคคลจะดำเนินการแจ้งอายัดตามกฎหมาย และจะดำเนินการถอนอายัดหลังชำระครบแล้ว 6 เดือน
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg border border-yellow-200">
+                                <p class="font-semibold text-slate-800">โอนเงินได้ที่:</p>
+                                <p class="text-slate-600">ธนาคารกสิกรไทย (KBANK)</p>
+                                <p class="text-2xl font-mono text-indigo-600 my-1 tracking-wider">698-2-36544-7</p>
+                                <p class="text-slate-600 text-sm sm:text-base">นิติบุคคลหมู่บ้านจัดสรร บ้านพิศาล ท่าข้าม โครงการ 14</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Parking Rules Tab Content --><div x-show="tab === 'parking'" role="tabpanel" class="animate-fade-in" style="display: none;">
+                        <div class="space-y-4">
+                            <div class="p-5 bg-white rounded-lg border border-gray-200">
+                                <ul class="space-y-3 text-slate-700">
+                                    <li class="flex items-start gap-3">🗓️<span class="flex-1"><strong>คืนช่องจอด:</strong> ต้องแจ้งล่วงหน้าอย่างน้อย 1 เดือน</span></li>
+                                    <li class="flex items-start gap-3">🚫<span class="flex-1"><strong>ห้ามโอนสิทธิ์:</strong> หากเลิกจอด ห้ามยกช่องจอดให้ผู้อื่นเช่าต่อโดยเด็ดขาด ต้องแจ้งคณะกรรมการเพื่อจัดสรรให้คิวถัดไป</span></li>
+                                    <li class="flex items-start gap-3">❌<span class="flex-1"><strong>ยกเลิกสิทธิ์ทันที:</strong> หากผู้เช่าเดิมแอบให้บุคคลอื่นมาใช้ช่องจอดแทน จะถูกยกเลิกการเช่าทั้งสองฝ่าย</span></li>
+                                    <li class="flex items-start gap-3">⛔<span class="flex-1"><strong>ห้ามรถภายนอก:</strong> ห้ามนำรถของบุคคลภายนอกที่ไม่ได้อาศัยในหมู่บ้านเข้ามาจอดโดยเด็ดขาด</span></li>
+                                    <li class="flex items-start gap-3">1️⃣<span class="flex-1"><strong>จำกัดสิทธิ์:</strong> สิทธิ์ในการเช่าช่องจอด ได้บ้านละ 1 ช่องเท่านั้น เพื่อแบ่งปันให้บ้านหลังอื่น</span></li>
+                                    <li class="flex items-start gap-3">🎲<span class="flex-1"><strong>การจับฉลาก:</strong> หากมีช่องจอดว่างแต่มีผู้จองเกินจำนวน จะนัดจับฉลากเพื่อความยุติธรรม</span></li>
+                                    <li class="flex items-start gap-3">✅<span class="flex-1"><strong>รับสิทธิ์ทันที:</strong> หากมีช่องจอดว่างและมีผู้จองไม่เกินจำนวน จะได้รับสิทธิ์ทันทีโดยไม่ต้องจับฉลาก</span></li>
+                                    <li class="flex items-start gap-3">🏠<span class="flex-1"><strong>ข้อยกเว้น:</strong> "บ้านเช่า" ไม่มีสิทธิ์ในการจองเช่าช่องจอดรถ</span></li>
+                                    <li class="flex items-start gap-3">🚚<span class="flex-1"><strong>ประเภทรถ:</strong> ห้ามนำรถผิดประเภท (เช่น รถบรรทุก) เข้ามาจอดในช่องจอดรถยนต์ส่วนบุคคล</span></li>
+                                </ul>
+                            </div>
+                            <div class="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg shadow-md">
+                                <h3 class="text-2xl font-bold text-green-800 mb-3">การชำระค่าเช่าช่องจอดรถ</h3>
+                                <p class="text-green-700 text-lg">ชำระล่วงหน้า <strong>6 เดือน</strong> (เดือนละ 500 บาท) <br>รวมเป็นเงิน <strong class="text-xl">3,000 บาท / ช่องจอด</strong> (ชำระปีละ 2 ครั้ง)</p>
+                                <div class="mt-4 bg-white p-4 rounded-lg border">
+                                    <p class="font-semibold text-slate-800">โอนเงินได้ที่:</p>
+                                    <p class="text-slate-600">ธนาคารไทยพาณิชย์ (SCB)</p>
+                                    <p class="text-2xl font-mono text-indigo-600 my-1 tracking-wider">239-280293-2</p>
+                                    <p class="text-slate-600">นายทวีศิลป์ หมายมั่น / นายธนโรจน์ ธนโรจน์หิรัญกร</p>
+                                </div>
+                                <p class="text-center mt-4 text-sm text-red-600 font-semibold">**โอนแล้วกรุณาแจ้งสลิปในกลุ่มไลน์ลานจอดรถ**</p>
+                            </div>
+                        </div>
+                    </div>
                     
-                    <!-- Rule 1: Monarchy --><div class="rule-card bg-indigo-50 p-5 rounded-lg shadow-sm flex items-start gap-4">
-                        <span class="text-3xl flex-shrink-0">🇹🇭</span>
-                        <div>
-                            <h3 class="font-bold text-xl text-indigo-800 mb-1">ชาติ ศาสนา และพระมหากษัตริย์</h3>
-                            <p class="text-slate-700">ห้ามสมาชิกโพสต์ข้อความที่ไม่เหมาะสม หรือแสดงความคิดเห็นที่แตกต่างต่อสถาบันพระมหากษัตริย์โดยเด็ดขาด</p>
+                    <!-- Funeral Assistance Rules Tab Content --><div x-show="tab === 'funeral'" role="tabpanel" class="animate-fade-in" style="display: none;">
+                        <div class="space-y-4">
+                            <div class="p-5 bg-white rounded-lg border border-gray-200">
+                                <ul class="space-y-3 text-slate-700">
+                                    <li class="flex items-start gap-3">1.<span class="flex-1"><strong>ผู้มีสิทธิ์ (บิดา-มารดา):</strong> จะต้องเป็น บิดา-มารดา(จริง) ของเจ้าของบ้าน(ที่มีชื่อในโฉนด) ถ้าชื่อในโฉนดเป็นสามี ภรรยา ได้รับสิทธิ์ ถ้าชื่อในโฉนดเป็นภรรยา สามี ได้รับสิทธิ์ บิดา-มารดา เสียชีวิต</span></li>
+                                    <li class="flex items-start gap-3">2.<span class="flex-1"><strong>ข้อยกเว้น:</strong> บิดา-มารดา(บุญธรรม) หรือ บิดา-มารดา(เลี้ยง) ไม่ได้รับสิทธิ์</span></li>
+                                    <li class="flex items-start gap-3">3.<span class="flex-1"><strong>ผู้มีสิทธิ์ (ผู้อาศัย):</strong> สมาชิกที่พักอยู่จริง(ผู้อาศัย)เสียชีวิต ได้รับสิทธิ์เฉพาะผู้เสียชีวิต</span></li>
+                                    <li class="flex items-start gap-3">4.<span class="flex-1"><strong>ข้อยกเว้น:</strong> บิดา-มารดา ของผู้อาศัย จะไม่ได้รับสิทธิ์</span></li>
+                                    <li class="flex items-start gap-3">5.<span class="flex-1"><strong>ผู้หมดสิทธิ์:</strong> สมาชิกที่ย้ายออกไปมีครอบครัว หรือเหตุผลอื่นๆ จะไม่ได้รับสิทธิ์</span></li>
+                                    <li class="flex items-start gap-3">6.<span class="flex-1"><strong>กรณีพิเศษ:</strong> บางเคส นิติบุคคลจะพิจารณาเป็นบางกรณี</span></li>
+                                </ul>
+                            </div>
+                            <div class="bg-slate-100 border-t-4 border-slate-400 p-6 rounded-b-lg shadow-inner text-center">
+                                <h3 class="text-xl font-bold text-slate-800 mb-2">เงินช่วยเหลือฌาปนกิจ</h3>
+                                <p class="text-slate-700 text-lg">นิติบุคคล ม.พิศาล 14 มอบเงินช่วยเหลือรายละ <strong class="text-2xl text-indigo-600">6,000 บาท</strong></p>
+                                <p class="mt-2 text-sm text-slate-600">(เจ้าภาพต้องจัดพวงหรีด 1 พวง ในนาม "หมู่บ้านพิศาล 14")</p>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Rule 2: Politics --><div class="rule-card bg-indigo-50 p-5 rounded-lg shadow-sm flex items-start gap-4">
-                        <span class="text-3xl flex-shrink-0">🗳️</span>
-                        <div>
-                            <h3 class="font-bold text-xl text-indigo-800 mb-1">การเมือง</h3>
-                            <p class="text-slate-700">ห้ามโพสต์เนื้อหาหรือแสดงความคิดเห็นทางการเมืองโดยเด็ดขาด เพื่อป้องกันความขัดแย้ง (นิติบุคคลจะโพสต์เฉพาะข้อมูลที่เป็นประโยชน์ต่อส่วนรวมเท่านั้น)</p>
-                        </div>
-                    </div>
-
-                    <!-- Rule 3: Slander --><div class="rule-card bg-indigo-50 p-5 rounded-lg shadow-sm flex items-start gap-4">
-                        <span class="text-3xl flex-shrink-0">🗣️❌</span>
-                        <div>
-                            <h3 class="font-bold text-xl text-indigo-800 mb-1">การกล่าวว่าร้าย</h3>
-                            <p class="text-slate-700">ห้ามต่อว่าหรือเสียดสีเพื่อนบ้านลงในกลุ่มโดยเด็ดขาด</p>
-                        </div>
-                    </div>
-
-                    <!-- Rule 4: Disputes --><div class="rule-card bg-indigo-50 p-5 rounded-lg shadow-sm flex items-start gap-4">
-                        <span class="text-3xl flex-shrink-0">🚧</span>
-                        <div>
-                            <h3 class="font-bold text-xl text-indigo-800 mb-1">ปัญหาระหว่างบ้าน (เกี่ยวกับส่วนกลาง)</h3>
-                            <p class="text-slate-700">หากมีปัญหาระหว่างบ้านที่เกี่ยวข้องกับเขตแดนหรือพื้นที่ส่วนกลาง กรุณาแจ้งนิติบุคคลเพื่อดำเนินการ</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Rule 5: Public Issues --><div class="rule-card bg-indigo-50 p-5 rounded-lg shadow-sm flex items-start gap-4">
-                        <span class="text-3xl flex-shrink-0">🔔</span>
-                        <div>
-                            <h3 class="font-bold text-xl text-indigo-800 mb-1">การแจ้งปัญหาส่วนรวม</h3>
-                            <p class="text-slate-700">สามารถแจ้งปัญหาส่วนรวมที่เกี่ยวกับพื้นที่ส่วนกลางในกลุ่ม หรือแจ้งโดยตรงที่ประธาน/รองประธานได้</p>
-                        </div>
-                    </div>
-
-                    <!-- Rule 6: Common Area --><div class="rule-card bg-indigo-50 p-5 rounded-lg shadow-sm flex items-start gap-4">
-                        <span class="text-3xl flex-shrink-0">🅿️🚫</span>
-                        <div>
-                            <h3 class="font-bold text-xl text-indigo-800 mb-1">การใช้พื้นที่ส่วนกลาง</h3>
-                            <p class="text-slate-700">ห้ามรุกล้ำพื้นที่ส่วนกลางทุกจุดโดยเด็ดขาด (นิติบุคคลจะอนุญาตเป็นบางกรณีตามความเหมาะสม)</p>
-                        </div>
-                    </div>
-
-                     <!-- Rule 7: Personal Issues --><div class="rule-card bg-indigo-50 p-5 rounded-lg shadow-sm flex items-start gap-4">
-                        <span class="text-3xl flex-shrink-0">🤝⚖️</span>
-                        <div>
-                            <h3 class="font-bold text-xl text-indigo-800 mb-1">ปัญหาส่วนตัวระหว่างบ้าน</h3>
-                            <p class="text-slate-700">กรณีนอกเหนืออำนาจนิติบุคคล หากตกลงกันไม่ได้ กรุณาปรึกษาเจ้าหน้าที่ตำรวจเพื่อดำเนินการตามกฎหมาย</p>
-                        </div>
-                    </div>
-
-                    <!-- Rule 9: Inviting --><div class="rule-card bg-indigo-50 p-5 rounded-lg shadow-sm flex items-start gap-4">
-                        <span class="text-3xl flex-shrink-0">➕👤</span>
-                        <div>
-                            <h3 class="font-bold text-xl text-indigo-800 mb-1">การเชิญสมาชิกใหม่</h3>
-                            <p class="text-slate-700">ต้องแจ้งประธาน/รองประธาน/คุณโต้งให้ทราบก่อนดึงสมาชิกใหม่เข้ากลุ่ม และสมาชิกใหม่ต้องรายงานตัวพร้อมแจ้งบ้านเลขที่</p>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- Fee Section - Highlighted --><section class="mt-12">
-                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-r-lg shadow-md flex items-start gap-4">
-                    <span class="text-4xl flex-shrink-0">💸</span>
-                    <div>
-                        <h3 class="text-2xl font-bold text-yellow-800">ค่าส่วนกลาง: 400 บาท/เดือน</h3>
-                        <p class="text-yellow-700 mt-2 text-lg">
-                            <span class="font-semibold">⚠️ โปรดชำระภายในวันที่ 5 ของทุกเดือน</span> หากค้างชำระเกิน 7 เดือน นิติบุคคลจะดำเนินการแจ้งอายัดตามกฎหมาย และจะดำเนินการถอนอายัดหลังชำระครบแล้ว 6 เดือน
-                        </p>
-                    </div>
                 </div>
             </section>
 
