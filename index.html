@@ -116,8 +116,8 @@
                     <span class="absolute left-0 right-0 top-1/2 h-0.5 bg-gray-200 -z-0"></span>
                 </h2>
                 <div x-data="{ tab: 'general' }" class="bg-slate-50 p-4 sm:p-6 rounded-xl border">
-                    <!-- Tab Buttons for Rules --><div class="mb-6 overflow-x-auto">
-                        <div class="flex border-b border-gray-200" role="tablist">
+                    <!-- Tab Buttons for Rules --><div class="mb-6">
+                        <div class="flex flex-wrap border-b border-gray-200" role="tablist">
                             <button @click="tab = 'general'" :class="{ 'border-indigo-500 text-indigo-600 bg-white': tab === 'general', 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300': tab !== 'general' }"
                                     class="flex-shrink-0 whitespace-nowrap py-3 px-4 sm:px-6 border-b-2 font-medium text-sm sm:text-base focus:outline-none transition-colors duration-200 rounded-t-md" role="tab">
                                 📜 กฎระเบียบทั่วไป
@@ -246,8 +246,8 @@
                 </h2>
             
                 <div x-data="{ tab: 'village' }" class="bg-slate-50 p-4 sm:p-6 rounded-xl border">
-                    <!-- Tab Buttons --><div class="mb-6 overflow-x-auto">
-                        <div class="flex border-b border-gray-200" role="tablist">
+                    <!-- Tab Buttons --><div class="mb-6">
+                        <div class="flex flex-wrap border-b border-gray-200" role="tablist">
                             <button @click="tab = 'village'" :class="{ 'border-indigo-500 text-indigo-600 bg-white': tab === 'village', 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300': tab !== 'village' }"
                                     class="flex-shrink-0 whitespace-nowrap py-3 px-4 sm:px-6 border-b-2 font-medium text-sm sm:text-base focus:outline-none transition-colors duration-200 rounded-t-md" role="tab">
                                 ☎️ นิติบุคคล
@@ -360,4 +360,3 @@
     </script>
 </body>
 </html>
-
